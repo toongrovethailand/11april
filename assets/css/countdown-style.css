@@ -1,0 +1,246 @@
+/* countdown-style.css */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&display=swap');
+
+/* --- ส่วนตั้งค่าหลัก (Global) --- */
+/* 1. ปลดล็อก Container ของ Helios ที่บีบหน้าจออยู่ */
+#header .inner {
+    width: 100% !important;
+    max-width: 1200px !important; /* ขยายให้กว้างขึ้นตามจอ Desktop */
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+
+#header header {
+    width: 100% !important;
+    max-width: none !important;
+    display: block !important;
+}
+
+
+#logo-countdown-container {
+    font-family: 'Kanit', sans-serif !important;
+    width: 100% !important;
+    margin: 20px 0 !important;
+    display: block !important;
+    text-align: center !important;
+    
+    /* --- ปลดล็อกความกว้างให้ Wrapper --- */
+    max-width: none !important; /* ปลดล็อกค่า max-width ของ Helios */
+    padding-left: 0 !important;   /* ล้าง padding ซ้าย */
+    padding-right: 0 !important;  /* ล้าง padding ขวา */
+    position: relative !important;
+}
+
+#countdown-wrapper {
+    display: block !important; /* เป็น block เพื่อให้ขยายได้ */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    width: 100% !important; /*Wrapper กว้างเต็มพื้นที่ */
+    
+    /* --- เพิ่มเติมเพื่อให้แน่ใจว่าอยู่กึ่งกลาง --- */
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.heart { 
+    color: #ff4d6d !important; 
+    font-size: 1.3rem !important; 
+    margin-bottom: 15px !important;
+    font-weight: 500 !important;
+    display: block !important;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* --- ส่วน Countdown (หน้าจอใหญ่) --- */
+.container-timer { 
+    display: flex !important; 
+    flex-direction: row !important;
+    justify-content: center !important; 
+    align-items: center !important;
+    gap: 15px !important; 
+    padding: 20px !important;
+    background: rgba(255, 240, 243, 0.95) !important; 
+    border-radius: 40px !important; /* ปรับความโค้งให้เท่ากับด้านล่าง */
+    border: 3px dashed #ffb3c1 !important;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.15) !important;
+    margin: 0 auto !important;
+
+    /* ตั้งค่าให้เท่ากับด้านล่างเป๊ะๆ */
+    width: 40% !important;      
+    max-width: 1000px !important;
+}
+
+.time-block { 
+    background: #ffffff !important; 
+    color: #c9184a !important; 
+    padding: 10px !important; 
+    border-radius: 12px !important; 
+    min-width: 65px !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 !important;
+}
+
+.number { 
+    font-size: 1.6rem !important; 
+    font-weight: bold !important; 
+    line-height: 1 !important; 
+    display: block !important;
+    margin: 0 !important;
+}
+
+.label { 
+    font-size: 0.7rem !important; 
+    color: #ff758f !important; 
+    display: block !important;
+    margin-top: 4px !important;
+}
+
+/* --- ส่วน Love Loop (หน้าจอใหญ่) --- */
+.love-loop-section {
+    width: 40% !important;        
+    max-width: 1000px !important;   
+    margin: 40px auto !important;
+    padding: 25px 25px 15px 25px !important; 
+    background: #fff5f7;
+    border-radius: 40px !important; /* ความโค้ง 40px เท่ากัน */
+    border: 3px dashed #ffb3c1 !important;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.15) !important;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.title-text { color: #ff4d6d; font-size: 24px; font-weight: 500; margin-bottom: 5px; font-family: 'Kanit', sans-serif; }
+.subtitle-text { color: #ff758f; font-size: 16px; margin-bottom: 30px; font-family: 'Kanit', sans-serif; }
+
+.animation-container {
+    position: relative;
+    width: 100%;
+    height: 140px; 
+    margin-top: 5px; 
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex; 
+    justify-content: center;
+    align-items: flex-end; 
+    padding-bottom: 20px; 
+}
+
+.track { position: absolute; bottom: 35px; left: 5%; width: 90%; height: 8px; background-color: #fce4ec; border-radius: 10px; }
+.track-line { position: absolute; top: 3px; left: 0; height: 2px; background-color: #ffc1e3; width: 100%; }
+
+.person-circle {
+    width: 85px; height: 85px; border-radius: 50%; background-size: cover; background-position: center;
+    border: 4px solid white; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2); position: absolute;
+    bottom: 45px; background-color: #fff0f3; 
+}
+
+.man { background-image: url('https://i.ibb.co/VpLqDSNC/Gemini-M.png'); left: 5%; animation: moveMan 8s ease-in-out infinite; }
+
+.woman-with-train {
+    position: absolute; bottom: 45px; right: 5%; display: flex; flex-direction: row; align-items: flex-end;
+    gap: 12px; animation: moveWomanTrain 8s ease-in-out infinite;
+}
+
+.train-image { width: 75px; height: auto; margin-bottom: -5px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+.woman { background-image: url('https://i.ibb.co/Y41cXHYk/Gemini-F.png'); width: 85px; height: 85px; border-radius: 50%; background-size: cover; background-position: center; border: 4px solid white; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2); background-color: #fff0f3; }
+
+.meeting-point { position: absolute; bottom: 65px; left: 50%; transform: translateX(-50%); font-size: 50px; animation: showHeart 8s ease-in-out infinite; z-index: 10; }
+
+@keyframes moveMan { 0%, 15% { left: 5%; } 45%, 55% { left: 35%; } 85%, 100% { left: 5%; } }
+@keyframes moveWomanTrain { 0%, 15% { right: 5%; } 45%, 55% { right: 35%; } 85%, 100% { right: 5%; } }
+@keyframes showHeart { 0%, 40% { opacity: 0; transform: translateX(-50%) scale(0); } 45%, 55% { opacity: 1; transform: translateX(-50%) scale(1.3); } 60%, 100% { opacity: 0; transform: translateX(-50%) scale(0); } }
+
+/* --- รวม Media Queries สำหรับมือถือไว้ที่เดียว (ล่างสุด) --- */
+@media screen and (max-width: 480px) {
+    /* ปรับ Countdown ในมือถือ */
+    .container-timer { 
+        width: 95% !important; 
+        gap: 8px !important; 
+        padding: 15px 10px !important; 
+    }
+    .time-block { 
+        min-width: 60px !important; 
+        padding: 8px 4px !important; 
+    }
+    .number { font-size: 1.2rem !important; }
+
+    /* ปรับ Love Loop ในมือถือ */
+    .love-loop-section { 
+        width: 98% !important; 
+        padding: 20px 10px 10px 10px; 
+    }
+    .person-circle, .woman { width: 65px; height: 65px; }
+    .train-image { width: 55px; }
+    .animation-container { height: 140px; }
+    .meeting-point { font-size: 40px; bottom: 50px; }
+}
+
+
+/* ส่วนของปุ่ม */
+/* --- ส่วนปุ่มกดที่ปรับแต่งใหม่ --- */
+.button-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.custom-love-button {
+    /* ใช้ฟอนต์ Kanit และยกเลิกการตั้งค่าตัวพิมพ์ใหญ่ของ Helios */
+    font-family: 'Kanit', sans-serif !important;
+    display: inline-block !important;
+    padding: 15px 40px !important;
+    font-size: 1.2rem !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
+    background: #ff4d6d !important; /* สีชมพูเข้ม */
+    
+    /* สไตล์เส้นประให้เหมือนกับกรอบ Countdown */
+    border: 3px dashed rgba(255, 255, 255, 0.8) !important;
+    border-radius: 50px !important;
+    
+    text-decoration: none !important;
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+    
+    /* ล้างค่าเริ่มต้นของปุ่มใน Helios */
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+    width: auto !important;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ไปชี้ (Hover) */
+.custom-love-button:hover {
+    background: #c9184a !important;
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 12px 25px rgba(255, 77, 109, 0.4) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* เอฟเฟกต์เวลาคลิก */
+.custom-love-button:active {
+    transform: translateY(1px) !important;
+}
+
+/* ปรับแต่งสำหรับหน้าจอมือถือ */
+@media screen and (max-width: 480px) {
+    .custom-love-button {
+        padding: 12px 20px !important;
+        font-size: 1rem !important;
+        width: 90% !important;
+        max-width: 300px;
+    }
+}
